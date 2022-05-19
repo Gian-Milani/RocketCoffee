@@ -186,7 +186,7 @@ footer img {
       "description description description"
       "footer footer footer";
 
-    overflow-y: hidden;
+    overflow-y: auto;
   }
 
   header{
