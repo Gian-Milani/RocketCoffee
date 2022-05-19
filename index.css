@@ -1,0 +1,268 @@
+:root {
+  --background: #000;
+  --text-color: #FFF;
+  --button: #8257e5;
+  --border: #29292E;
+  --border-menu-mobile: #29292E;
+  --text-color-menu-mobile: #E1E1E6;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;  
+}
+
+body{
+  background-image: url('./assets/blur-mobile.png');
+  background-position: bottom center ;
+  background-repeat: no-repeat;
+  background-color: var(--background);
+  color: white;
+  font-family: 'Manrope', sans-serif;
+  max-width: 100vw;
+  max-height: 100vh;
+}
+
+header {
+  background-color: var(--background);
+  padding: 4%;
+  display: flex;
+  justify-content: space-between;
+  
+  border-bottom: 1px solid rgba( 155, 155, 155, 70%);
+  transition: 400ms;
+}
+
+header .logo-desktop {
+  display: none;
+}
+
+header img:hover{
+  cursor: pointer;
+  transform: translateX(-10%);
+  transition-duration: 400ms;
+}
+
+header img:first-child:hover{
+  cursor: pointer;
+  transform: translateY(2%);
+  transition-duration: 400ms;
+}
+
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 4% 4% 0;
+}
+
+.hidden {
+  display: none !important;
+}
+
+@keyframes transitionNav {
+  to{
+      transform: translateX(0px);
+      opacity: 100%;
+  }
+  from{
+      transform: translateX(50px);
+      opacity: 0%;
+  }
+}
+
+.menu-mobile{ 
+  width: 100%;
+  animation: transitionNav 0.5s normal;
+  background-color: var(--background)
+}
+
+.menu-mobile li{
+  list-style: none;
+  padding: 3% 5%;
+  border-bottom: 1px solid var(--border-menu-mobile);
+  opacity: 50%;
+  cursor: pointer;
+}
+
+.menu-mobile li:hover{
+  opacity: 100%;
+  border-left: 3px solid var(--button)
+}
+
+@keyframes transitionMain {
+  to{
+      transform: translateY(0px);
+      opacity: 100%;
+  }
+  from{
+      transform: translateY(-100px);
+      opacity: 0%;
+  }
+}
+
+main{
+  animation: transitionMain 0.5s normal;
+}
+
+main h3{
+  width: 80%;
+  margin: 10% 0;
+  text-align: center;
+  padding: 10%;
+  font-weight: 400;  
+}
+
+main .button{
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  font-size: 0.7rem;
+  font-weight: 800;
+
+  border: 1px solid var(--button);
+  border-radius: 5px;
+
+  padding: 3% 4%;
+  margin-bottom: 20%;
+
+  transition: 400ms;
+  
+}
+
+main .button:hover{
+  cursor: pointer;
+  background-color: var(--button);
+}
+
+main .button img {
+  width: 5%;
+}
+
+main h1{
+  font-weight: 800;
+}
+
+.descriptions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10%;
+  animation: transitionMain 0.5s normal;
+  text-align: center;
+}
+
+
+.descriptions h1:last-child {
+  text-shadow: -1px -1px 0 var(--button), 1px -1px 0 var(--button), -1px 1px 0 var(--button), 1px 1px 0 var(--button);
+  color: rgba(0, 0, 0, 85%)
+}
+footer{
+  animation: transitionMain 0.5s normal;
+}
+
+footer img {
+  width: 100%;
+}
+
+/* Screen desktop */
+@media (min-width: 500px) {
+  body{
+    width: 80%;
+    margin: 2% auto 0;
+
+    background-image: url('./assets/blur-2.png');
+    background-position: right top;
+    background-repeat: no-repeat;
+
+    display: grid;
+    grid-template-areas: 
+      "header header2 header3"
+      "description description description"
+      "footer footer footer";
+
+    overflow-y: hidden;
+  }
+
+  header{
+    border-bottom: none;
+    display: flex;
+    grid-area: header;
+    background-color: transparent;
+    justify-content: center;
+  }
+
+  header .logo-mobile {
+    display: none;
+  }
+
+  header .logo-desktop{
+    display: flex;
+    width: 15%;
+    /* grid-area: header; */
+  }
+
+  header #btn-menu{
+    display: none;
+  }
+
+  .menu-desktop {
+    grid-area: header2;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .menu-desktop ul{    
+    width: 100%;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+  }
+
+  .menu-desktop ul li{
+    margin: 0 4%;
+    cursor: pointer;
+  }
+
+  .menu-desktop ul li:hover{    
+    border-bottom: 1px solid #ccc;
+  }
+
+  main {
+    background-image: none;
+    grid-area: header3;
+  }
+
+  main h3{
+    display: none;
+  }
+
+  main .button{
+    margin: 0;
+  }
+
+  .descriptions{
+    grid-area: description;
+    margin: 4% 0 5%;
+    font-size: 1.6em;
+  }
+
+  footer{
+    grid-area: footer;
+    display: flex;
+    justify-content: center;
+  }
+
+  footer img{
+    width: 62%;
+  }
+
+  
+}
